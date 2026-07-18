@@ -167,7 +167,7 @@ const resources = {
         impact: "Insight Chave"
       },
       footer: {
-        title: "Aprofundar seu Conhecimento?",
+        title: "Vamos Conversar?",
         description: "A fronteira digital é vasta. Vamos trocar conhecimentos sobre o futuro dos dados e da proteção.",
         email_label: "Participar da Discussão",
         copyright: "© 2026 Hub de Conhecimento: Dados & Segurança.",

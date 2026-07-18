@@ -221,5 +221,65 @@ export const projects: Project[] = [
     tags: ["Cryptography", "Law", "Policy"],
     githubUrl: "#",
     caseStudyUrl: "#"
+  },
+  {
+    id: 8,
+    title: {
+      pt: "Módulo 08: Inteligência de Ameaças",
+      en: "Module 08: Threat Intelligence"
+    },
+    category: {
+      pt: "Cyber Threat Intel",
+      en: "Cyber Threat Intel"
+    },
+    description: {
+      pt: "Pesquisa sobre coleta e análise de dados para antecipar movimentos de atacantes e fortalecer defesas proativamente.",
+      en: "Research on data collection and analysis to anticipate attacker movements and proactively strengthen defenses."
+    },
+    problem: {
+      pt: "Organizações reagem a ataques depois que eles já causaram danos significativos.",
+      en: "Organizations react to attacks after they have already caused significant damage."
+    },
+    solution: {
+      pt: "Análise de indicadores de comprometimento (IOCs) e padrões táticos, técnicos e procedimentais (TTPs).",
+      en: "Analysis of indicators of compromise (IOCs) and tactical, technical, and procedural patterns (TTPs)."
+    },
+    result: {
+      pt: "Capacidade de prever e prevenir ataques antes que sejam executados.",
+      en: "Ability to predict and prevent attacks before they are executed."
+    },
+    tags: ["Threat Intel", "OSINT", "Proactive Defense"],
+    githubUrl: "#",
+    caseStudyUrl: "#"
+  },
+  {
+    id: 9,
+    title: {
+      pt: "Módulo 09: Análise Forense Digital",
+      en: "Module 09: Digital Forensics"
+    },
+    category: {
+      pt: "Forense Digital",
+      en: "Digital Forensics"
+    },
+    description: {
+      pt: "Técnicas de investigação e preservação de evidências digitais para rastrear atacantes e comprovar incidentes.",
+      en: "Investigation and digital evidence preservation techniques to track attackers and prove incidents."
+    },
+    problem: {
+      pt: "Atacantes apagam rastros digitais após comprometer sistemas, dificultando a identificação.",
+      en: "Attackers erase digital traces after compromising systems, making identification difficult."
+    },
+    solution: {
+      pt: "Metodologias de cadeia de custódia, análise de memória volátil e recuperação de dados deletados.",
+      en: "Chain of custody methodologies, volatile memory analysis, and deleted data recovery."
+    },
+    result: {
+      pt: "Rastreamento preciso de atacantes e coleta de provas admissíveis legalmente.",
+      en: "Precise attacker tracking and legally admissible evidence collection."
+    },
+    tags: ["Forensics", "Incident Response", "Evidence"],
+    githubUrl: "#",
+    caseStudyUrl: "#"
   }
 ];

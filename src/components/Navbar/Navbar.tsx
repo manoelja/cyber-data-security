@@ -60,7 +60,7 @@ const Navbar = () => {
     >
       <div className="container navbar-content">
         <div className="logo">
-          Cyber Data Security<span>.</span>
+          Cyber Data Security
         </div>
         
         <ul className="nav-links desktop-only">
@@ -151,7 +151,7 @@ const Navbar = () => {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             >
               <div className="mobile-drawer-header">
-                <div className="logo">Cyber Data Security<span>.</span></div>
+                <div className="logo">Cyber Data Security</div>
                 <button 
                   className="control-btn"
                   onClick={() => setIsMobileMenuOpen(false)}

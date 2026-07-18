@@ -47,8 +47,6 @@ const Symbiosis = () => {
           viewport={{ once: true }}
         >
           <motion.div className="symbiosis-card cyber-card" variants={itemVariants}>
-            <div className="corner-accent corner-tl"></div>
-            <div className="corner-accent corner-br"></div>
             <div className="card-icon">
               <Database size={32} />
             </div>
@@ -57,8 +55,6 @@ const Symbiosis = () => {
           </motion.div>
 
           <motion.div className="symbiosis-card cyber-card" variants={itemVariants}>
-            <div className="corner-accent corner-tl"></div>
-            <div className="corner-accent corner-br"></div>
             <div className="card-icon">
               <ShieldAlert size={32} />
             </div>
@@ -67,8 +63,6 @@ const Symbiosis = () => {
           </motion.div>
 
           <motion.div className="symbiosis-card cyber-card" variants={itemVariants}>
-            <div className="corner-accent corner-tl"></div>
-            <div className="corner-accent corner-br"></div>
             <div className="card-icon">
               <Activity size={32} />
             </div>
@@ -77,8 +71,6 @@ const Symbiosis = () => {
           </motion.div>
 
           <motion.div className="symbiosis-card cyber-card" variants={itemVariants}>
-            <div className="corner-accent corner-tl"></div>
-            <div className="corner-accent corner-br"></div>
             <div className="card-icon">
               <Lock size={32} />
             </div>
@@ -87,8 +79,6 @@ const Symbiosis = () => {
           </motion.div>
 
           <motion.div className="symbiosis-card cyber-card" variants={itemVariants}>
-            <div className="corner-accent corner-tl"></div>
-            <div className="corner-accent corner-br"></div>
             <div className="card-icon">
               <Eye size={32} />
             </div>

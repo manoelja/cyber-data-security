@@ -98,9 +98,6 @@ const Skills = () => {
               onClick={() => toggleSkill(skill.name)}
               style={{ cursor: 'pointer' }}
             >
-              <div className="corner-accent corner-tl"></div>
-              <div className="corner-accent corner-br"></div>
-
               <div className="skill-header">
                 <div className="skill-main-info">
                   <div className="skill-icon-wrapper">

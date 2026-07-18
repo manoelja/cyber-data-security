@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './Projects.css';
 import { projects } from '../../data/projects';
-import { FileCode, Lock } from 'lucide-react';
+import { Lock } from 'lucide-react';
 
 const Projects = () => {
   const { t, i18n } = useTranslation();
@@ -61,24 +61,11 @@ const Projects = () => {
               onClick={() => toggleProject(project.id)}
               style={{ cursor: 'pointer' }}
             >
-              <div className="corner-accent corner-tl"></div>
-              <div className="corner-accent corner-tr"></div>
-              <div className="corner-accent corner-bl"></div>
-              <div className="corner-accent corner-br"></div>
-
               <motion.div layout className="project-header">
                 <span className="project-category">
                   <Lock size={10} style={{ marginRight: '5px' }} />
                   {project.category[currentLang] || project.category['pt']}
                 </span>
-                <div className="project-links" onClick={(e) => e.stopPropagation()}>
-                  <motion.div 
-                    className="modern-link-btn"
-                    whileHover={{ scale: 1.1, color: 'var(--accent-color)' }}
-                  >
-                    <FileCode size={18} />
-                  </motion.div>
-                </div>
               </motion.div>
               
               <motion.h3 layout className="project-title">{project.title[currentLang] || project.title['pt']}</motion.h3>

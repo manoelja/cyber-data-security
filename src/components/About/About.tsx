@@ -59,15 +59,10 @@ const About = () => {
               onClick={() => setIsMainExpanded(!isMainExpanded)}
               style={{ cursor: 'pointer' }}
             >
-              <div className="corner-accent corner-tl"></div>
-              <div className="corner-accent corner-tr"></div>
-              <div className="corner-accent corner-bl"></div>
-              <div className="corner-accent corner-br"></div>
-
               <div className="about-card-header">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div className="about-card-header-label">
                   <Shield size={20} color="var(--accent-color)" />
-                  <span style={{ fontSize: '0.7rem', fontWeight: 900, letterSpacing: '2px', color: 'var(--accent-color)' }}>INTELLIGENCE REPORT</span>
+                  <span className="card-label">INTELLIGENCE REPORT</span>
                 </div>
                 <motion.div 
                   animate={{ rotate: isMainExpanded ? 180 : 0 }}
@@ -94,11 +89,11 @@ const About = () => {
                       </p>
                       
                       <div className="mission-box">
-                        <div className="mission-header" style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                        <div className="mission-header">
                           <Target size={16} color="var(--accent-color)" />
-                          <span style={{ fontSize: '0.7rem', fontWeight: 800 }}>MISSION OBJECTIVE</span>
+                          <span className="card-label">MISSION OBJECTIVE</span>
                         </div>
-                        <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{t('about.mission_text')}</p>
+                        <p className="mission-body">{t('about.mission_text')}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -132,9 +127,6 @@ const About = () => {
               onClick={() => toggleEdu('cert1')}
               style={{ cursor: 'pointer' }}
             >
-              <div className="corner-accent corner-tl"></div>
-              <div className="corner-accent corner-br"></div>
-              
               <div className="edu-header-row">
                 <div className="edu-icon-container">
                   <Lock size={24} />
@@ -176,9 +168,6 @@ const About = () => {
               onClick={() => toggleEdu('cert2')}
               style={{ cursor: 'pointer' }}
             >
-              <div className="corner-accent corner-tl"></div>
-              <div className="corner-accent corner-br"></div>
-              
               <div className="edu-header-row">
                 <div className="edu-icon-container">
                   <FileText size={24} />
@@ -213,12 +202,12 @@ const About = () => {
               {!expandedEdu && <div className="edu-badge">VALIDATED</div>}
             </motion.div>
 
-            <div className="mission-box" style={{ background: 'rgba(255, 0, 0, 0.05)', borderColor: 'rgba(255, 0, 0, 0.3)' }}>
-              <div className="mission-header" style={{ color: 'rgba(255, 100, 100, 1)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div className="mission-box about-alert-box">
+              <div className="about-alert-header">
                 <AlertCircle size={14} />
-                <span>SECURITY ALERT SYSTEM ACTIVE</span>
+                <span className="card-label">SECURITY ALERT SYSTEM ACTIVE</span>
               </div>
-              <p style={{ fontSize: '0.75rem' }}>No critical vulnerabilities detected in the last 24 cycles.</p>
+              <p className="about-alert-body">No critical vulnerabilities detected in the last 24 cycles.</p>
             </div>
           </motion.div>
         </motion.div>

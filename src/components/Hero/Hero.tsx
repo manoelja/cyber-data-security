@@ -101,11 +101,6 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <div className="system-status">
-              <div className="corner-accent corner-tl"></div>
-              <div className="corner-accent corner-tr"></div>
-              <div className="corner-accent corner-bl"></div>
-              <div className="corner-accent corner-br"></div>
-              
               <div className="status-header">
                 <span>SYSTEM STATUS</span>
                 <Activity size={14} className="pulse-icon" />

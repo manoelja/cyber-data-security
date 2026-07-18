@@ -36,6 +36,7 @@ const MagneticButton = ({ children, className, onClick, href }: MagneticButtonPr
       animate={{ x: position.x, y: position.y }}
       transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
       onClick={onClick}
+      style={{ touchAction: 'manipulation' }}
     >
       {children}
     </motion.div>

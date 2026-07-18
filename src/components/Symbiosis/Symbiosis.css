@@ -10,8 +10,8 @@
 }
 
 .symbiosis-header .subtitle {
-  font-size: 0.8rem;
-  font-weight: 900;
+  font-size: var(--card-label-size);
+  font-weight: var(--card-label-weight);
   color: var(--accent-color);
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -20,10 +20,13 @@
 }
 
 .symbiosis-header .description {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
+  font-size: var(--card-body-size);
+  color: var(--text-primary);
+  line-height: var(--card-body-line-height);
   margin-top: 1.5rem;
+  font-family: monospace;
+  text-align: justify;
+  word-spacing: -0.5px;
 }
 
 .symbiosis-grid {
@@ -33,12 +36,12 @@
 }
 
 .symbiosis-card {
-  padding: 3rem 2rem;
+  padding: var(--card-padding) 2rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: var(--card-gap);
 }
 
 .card-icon {
@@ -50,17 +53,20 @@
 }
 
 .symbiosis-card h3 {
-  font-size: 1.2rem;
-  font-weight: 800;
+  font-size: var(--card-title-size);
+  font-weight: var(--card-title-weight);
   color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .symbiosis-card p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
+  font-size: var(--card-body-size);
+  color: var(--text-primary);
+  line-height: var(--card-body-line-height);
+  font-family: monospace;
+  text-align: justify;
+  word-spacing: -0.5px;
 }
 
 .symbiosis-fact {
@@ -76,21 +82,22 @@
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  font-size: 0.7rem;
-  font-weight: 900;
+  font-size: var(--card-label-size);
+  font-weight: var(--card-label-weight);
   color: var(--accent-color);
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--card-gap);
 }
 
 .fact-text {
-  font-size: 1rem;
+  font-size: var(--card-body-size);
   color: var(--text-primary);
   font-weight: 600;
-  line-height: 1.5;
-  font-style: italic;
+  line-height: var(--card-body-line-height);
   font-family: monospace;
+  text-align: justify;
+  word-spacing: -0.5px;
 }
 
 .fact-visual {
@@ -103,5 +110,25 @@
 @media (max-width: 1024px) {
   .symbiosis-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Symbiosis Responsive */
+@media (max-width: 768px) {
+  .symbiosis {
+    padding: 5rem 0;
+  }
+  .symbiosis-header {
+    margin-bottom: 2.5rem;
+  }
+  .symbiosis-card {
+    padding: 2rem 1.5rem;
+  }
+  .symbiosis-fact {
+    padding: 1.5rem;
+  }
+  .fact-visual {
+    position: static;
+    margin-top: 1rem;
   }
 }
