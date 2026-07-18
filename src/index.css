@@ -1,0 +1,15 @@
+/* Resets e estilos base minimalistas */
+:root {
+  /* Let global.css handle background colors via variables */
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+}

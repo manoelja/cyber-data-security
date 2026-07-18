@@ -1,0 +1,99 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.about-card-main {
+  position: relative;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  padding: 2.5rem;
+  border-radius: var(--cyber-radius);
+  transition: var(--transition);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.about-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--accent-soft);
+}
+
+.profile-deep-dive .deep-text {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  font-family: monospace;
+}
+
+.mission-box {
+  background-color: var(--accent-soft);
+  padding: 1.5rem;
+  border-radius: var(--cyber-radius);
+  border-left: 2px solid var(--accent-color);
+}
+
+.about-text {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.detail-item-modern {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.2rem;
+  background-color: var(--bg-color);
+  border: 1px solid var(--card-border);
+  border-radius: var(--cyber-radius);
+  transition: var(--transition);
+}
+
+.edu-card-modern {
+  position: relative;
+  padding: 2rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: var(--cyber-radius);
+  overflow: hidden;
+  transition: var(--transition);
+  margin-bottom: 1.5rem;
+}
+
+.edu-icon-container {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--cyber-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-soft);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+}
+
+.edu-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+}
+
+.edu-badge {
+  background: var(--accent-color);
+  color: #000;
+  font-size: 0.6rem;
+  font-weight: 900;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+}
