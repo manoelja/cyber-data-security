@@ -33,7 +33,7 @@ const resources = {
         postgrad_inst: "Mastering the layers of protection that keep our digital infrastructure resilient against evolving threats."
       },
       hero: {
-        badge: "Knowledge Hub | Research & Study",
+        badge: "Research & Study",
         greeting: "Unlock",
         title_pre: "Data &",
         title_highlight: "Security",
@@ -89,6 +89,94 @@ const resources = {
       }
     }
   },
+  es: {
+    translation: {
+      nav: {
+        home: "Conocimiento",
+        about: "Fundamentos",
+        skills: "Currículo",
+        symbiosis: "Simbiosis",
+        projects: "Laboratorio",
+        contact: "Conexión",
+        menu_open: "Abrir menú",
+        menu_close: "Cerrar menú",
+        change_language: "Idioma"
+      },
+      about: {
+        title: "Fundamentos Digitales",
+        description: "En una era donde la información es el activo más valioso, comprender la dualidad entre Ciencia de Datos y Ciberseguridad no es solo una carrera — es una necesidad para la ciudadanía digital. Exploramos cómo los datos generan valor y cómo la seguridad garantiza que ese valor permanezca protegido.",
+        age: "Madurez de Datos",
+        age_label: "Perspectiva",
+        birth_date: "2026",
+        nationality_label: "Alcance",
+        naturality_label: "Enfoque",
+        detailed_profile: "Este centro está dedicado al estudio de la integridad de la información. Analizamos cómo los modelos estadísticos pueden predecir amenazas y cómo la criptografía protege el tejido mismo de nuestras interacciones digitales. Aquí, el conocimiento es la primera línea de defensa.",
+        mission_label: "Nuestra Visión",
+        mission_text: "Democratizar la comprensión técnica sobre la importancia de proteger y analizar datos en el siglo XXI.",
+        graduation_label: "Data Science",
+        graduation_title: "El Poder de la Predicción",
+        graduation_inst: "Transformando información cruda en visión estratégica y comprendiendo los patrones que mueven el mundo.",
+        postgrad_label: "Ciberseguridad",
+        postgrad_title: "El Arte de la Defensa",
+        postgrad_inst: "Dominando las capas de protección que mantienen nuestra infraestructura digital resiliente contra amenazas en constante evolución."
+      },
+      hero: {
+        badge: "Investigación & Estudio",
+        greeting: "Desbloquear",
+        title_pre: "Datos &",
+        title_highlight: "Seguridad",
+        description: "Más allá del código. Explore la importancia crítica del análisis de datos y el papel esencial de la ciberseguridad en nuestra sociedad hiperconectada. El conocimiento es su escudo más fuerte.",
+        about_me: "Un espacio educativo dedicado a la evolución de la inteligencia y la defensa digital.",
+        view_projects: "Comenzar Aprendizaje",
+        scroll: "Explorar Profundamente"
+      },
+      symbiosis: {
+        title: "La Simbiosis de la Inteligencia",
+        subtitle: "Donde los Datos se encuentran con la Defensa",
+        description: "La Ciencia de Datos proporciona la mente analítica para identificar patrones y predecir anomalías. La Ciberseguridad proporciona el sistema inmunológico para reaccionar y proteger. Juntos, forman la base de un mundo digital resiliente.",
+        item1_title: "Defensa Basada en Datos",
+        item1_desc: "Utilizando conjuntos masivos de datos para identificar patrones globales de ataque antes de que alcancen su red.",
+        item2_title: "IA Segura",
+        item2_desc: "Protegiendo modelos de aprendizaje automático contra ataques adversarios y envenenamiento de datos.",
+        item3_title: "Detección en Tiempo Real",
+        item3_desc: "Identificando anomalías de comportamiento instantáneamente mediante procesamiento de flujos de alta velocidad.",
+        item4_title: "Criptografía Adaptativa",
+        item4_desc: "Ajustando dinámicamente las capas de seguridad basándose en la evaluación de riesgos y el comportamiento del usuario.",
+        item5_title: "Ética Digital",
+        item5_desc: "Garantizando la privacidad e integridad mediante el procesamiento ético de datos y anonimización avanzada.",
+        fact_title: "DATO RÁPIDO",
+        fact_text: "¿Sabías? El 90% de los datos del mundo se generaron en los últimos 2 años, convirtiendo la seguridad en una carrera contra el volumen."
+      },
+      skills: {
+        title: "Currículo Educativo",
+        categories: {
+          languages: "Teoría de la Información",
+          databases: "Matemática Defensiva",
+          ml: "Reconocimiento de Patrones",
+          data_manipulation: "Ética Digital",
+          deep_learning: "Defensa Neural",
+          visualization: "Mapeo de Amenazas",
+          cloud: "Confianza Distribuida",
+          mlops: "Resiliencia de Sistemas",
+          tools: "Recursos de Estudio"
+        }
+      },
+      projects: {
+        title: "Módulos de Investigación",
+        view_code: "Explorar Descubrimientos",
+        challenge: "Caso de Estudio",
+        impact: "Idea Clave"
+      },
+      footer: {
+        title: "¿Profundizar en su Conocimiento?",
+        description: "La frontera digital es vasta. Intercambiemos conocimientos sobre el futuro de los datos y la protección.",
+        email_label: "Unirse a la Discusión",
+        copyright: "© 2026 Centro de Conocimiento: Datos & Seguridad.",
+        rights: "Propósito Educativo e de Investigación.",
+        developed_with: "Potenciado por"
+      }
+    }
+  },
   pt: {
     translation: {
       nav: {
@@ -121,7 +209,7 @@ const resources = {
         postgrad_inst: "Dominando as camadas de proteção que mantêm nossa infraestrutura digital resiliente contra ameaças em constante evolução."
       },
       hero: {
-        badge: "Hub de Conhecimento | Pesquisa & Estudo",
+        badge: "Pesquisa & Estudo",
         title_pre: "Dados &",
         title_highlight: "Segurança",
         description: "Além do código. Explore a importância crítica da análise de dados e o papel essencial da cibersegurança em nossa sociedade hiperconectada. O conhecimento é seu escudo mais forte.",

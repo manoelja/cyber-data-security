@@ -11,8 +11,10 @@ const Hero = () => {
   const opacity = useTransform(scrollY, [0, 200], [1, 0]);
   const y = useTransform(scrollY, [0, 200], [0, 50]);
 
-  const words = i18n.language === 'pt' 
+  const words = i18n.language === 'pt'
     ? ["Cibersegurança", "Proteção de Dados", "Inteligência Defensiva"]
+    : i18n.language === 'es'
+    ? ["Ciberseguridad", "Protección de Datos", "Inteligencia Defensiva"]
     : ["Cybersecurity", "Data Protection", "Defensive Intelligence"];
     
   const typewriterText = useTypewriter(words, 80, 2000);

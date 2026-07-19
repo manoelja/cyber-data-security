@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export const useActiveSection = (sectionIds: string[]) => {
-  const [activeSection, setActiveSection] = useState<string>('');
+  const [activeSection, setActiveSection] = useState<string>(sectionIds[0] || '');
 
   useEffect(() => {
     const observers = sectionIds.map((id) => {

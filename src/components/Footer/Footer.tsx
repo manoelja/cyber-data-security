@@ -6,8 +6,33 @@ import { Github, Linkedin, Globe, User, X, Terminal, Code, Command } from 'lucid
 
 type ShellType = 'git' | 'bash' | 'cmd';
 
+const aboutTexts: Record<string, string> = {
+  pt: "Sou Data Scientist apaixonado por transformar dados em inteligência e democratizar o conhecimento técnico. Criei esta plataforma para compartilhar aprendizado e contribuir com a comunidade brasileira de tecnologia.",
+  en: "I'm a Data Scientist passionate about turning data into intelligence and democratizing technical knowledge. I created this platform to share learning and contribute to the tech community.",
+  es: "Soy Data Scientist apasionado por transformar datos en inteligencia y democratizar el conocimiento técnico. Creé esta plataforma para compartir aprendizaje y contribuir a la comunidad tecnológica."
+};
+
+const authorLabels: Record<string, string> = {
+  pt: "Desenvolvido por Manoel — Data Scientist",
+  en: "Developed by Manoel — Data Scientist",
+  es: "Desarrollado por Manoel — Data Scientist"
+};
+
+const aboutTitles: Record<string, string> = {
+  pt: "Sobre o Desenvolvedor",
+  en: "About the Developer",
+  es: "Sobre el Desarrollador"
+};
+
+const copyrightTexts: Record<string, string> = {
+  pt: "© 2026 DS.Manoel. Todos os direitos reservados.",
+  en: "© 2026 DS.Manoel. All rights reserved.",
+  es: "© 2026 DS.Manoel. Todos los derechos reservados."
+};
+
 export default function Footer() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language.split('-')[0];
   const [showAbout, setShowAbout] = useState(false);
   const [activeShell, setActiveShell] = useState<ShellType>('git');
   const [terminalHistory, setTerminalHistory] = useState<Array<{type: 'input' | 'success' | 'error' | 'info', text: string}>>([
@@ -72,17 +97,17 @@ export default function Footer() {
       response: 'diff --git a/src/components/Footer.tsx\n+ new feature added\n- old code removed', 
       type: 'success' 
     },
-    'remote -v': { 
-      response: 'origin\thttps://github.com/manoelja/cyberdata.git (fetch)\norigin\thttps://github.com/manoelja/cyberdata.git (push)', 
-      type: 'success' 
+    'remote -v': {
+      response: 'origin\thttps://github.com/manoelja/cyber-data-security.git (fetch)\norigin\thttps://github.com/manoelja/cyber-data-security.git (push)',
+      type: 'success'
     },
-    'clone': { 
-      response: '✓ Cloning into \'cyberdata\'...\nremote: Enumerating objects: 156, done.\nReceiving objects: 100% (156/156), 2.4 MiB | 1.2 MiB/s, done.', 
-      type: 'success' 
+    'clone': {
+      response: '✓ Cloning into \'cyber-data-security\'...\nremote: Enumerating objects: 156, done.\nReceiving objects: 100% (156/156), 2.4 MiB | 1.2 MiB/s, done.',
+      type: 'success'
     },
-    'fetch': { 
-      response: '✓ remote: Enumerating objects: 5, done.\nFrom https://github.com/manoelja/cyberdata\n   c1d5f3e..a3f2c1d  main -> origin/main', 
-      type: 'success' 
+    'fetch': {
+      response: '✓ remote: Enumerating objects: 5, done.\nFrom https://github.com/manoelja/cyber-data-security\n   c1d5f3e..a3f2c1d  main -> origin/main',
+      type: 'success'
     },
     'reset': { 
       response: '✓ HEAD is now at c1d5f3e feat: add footer interativo', 
@@ -357,7 +382,7 @@ export default function Footer() {
               {t('footer.description')}
             </p>
 
-            <p className="footer-author-credit">Desenvolvido por Manoel — Data Scientist</p>
+            <p className="footer-author-credit">{authorLabels[currentLang] || authorLabels['pt']}</p>
 
             <div className="footer-social-icons">
               <motion.a
@@ -406,13 +431,13 @@ export default function Footer() {
                   transition={{ duration: 0.3 }}
                 >
                   <div className="developer-about-header">
-                    <h4>Sobre o Desenvolvedor</h4>
+                    <h4>{aboutTitles[currentLang] || aboutTitles['pt']}</h4>
                     <button className="close-about-btn" onClick={() => setShowAbout(false)}>
                       <X size={16} />
                     </button>
                   </div>
                   <p className="developer-about-text">
-                    Sou Data Scientist apaixonado por transformar dados em inteligência e democratizar o conhecimento técnico. Criei esta plataforma para compartilhar aprendizado e contribuir com a comunidade brasileira de tecnologia.
+                    {aboutTexts[currentLang] || aboutTexts['pt']}
                   </p>
                 </motion.div>
               )}
@@ -483,7 +508,7 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <div className="footer-bottom-content container">
-          <p className="footer-copyright-text">© 2026 DS.Manoel. Todos os direitos reservados.</p>
+          <p className="footer-copyright-text">{copyrightTexts[currentLang] || copyrightTexts['pt']}</p>
         </div>
       </div>
     </footer>
