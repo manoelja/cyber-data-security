@@ -1,16 +1,12 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { MousePointer2, ChevronDown, Shield, Lock, ShieldCheck, Activity, Cpu, HardDrive } from 'lucide-react';
+import { MousePointer2, Shield, Lock, ShieldCheck, Activity, Cpu, HardDrive } from 'lucide-react';
 import MagneticButton from '../Common/MagneticButton';
 import { useTypewriter } from '../../hooks/useTypewriter';
 import './Hero.css';
 
 const Hero = () => {
   const { t, i18n } = useTranslation();
-  const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 200], [1, 0]);
-  const y = useTransform(scrollY, [0, 200], [0, 50]);
-
   const words = i18n.language === 'pt'
     ? ["Cibersegurança", "Proteção de Dados", "Inteligência Defensiva"]
     : i18n.language === 'es'
@@ -152,19 +148,6 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-
-      <motion.div 
-        className="scroll-indicator"
-        style={{ opacity, y }}
-      >
-        <span>{t('hero.scroll')}</span>
-        <motion.div 
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        >
-          <ChevronDown size={24} color="var(--accent-color)" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 };

@@ -18,25 +18,14 @@ const Projects = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6 }
+      transition: { staggerChildren: 0.1 }
     }
   };
 
   return (
     <section id="projects" className="projects">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,61 +34,77 @@ const Projects = () => {
           {t('projects.title')}
         </motion.h2>
 
-        <motion.div 
+        <motion.div
           className="projects-grid"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true }}
         >
           {projects.map((project) => (
-            <motion.div 
-              key={project.id} 
-              className={`project-card cyber-card ${expandedId === project.id ? 'expanded' : ''}`}
-              variants={itemVariants}
-              layout
+            <div
+              key={project.id}
+              className="project-card cyber-card"
               onClick={() => toggleProject(project.id)}
               style={{ cursor: 'pointer' }}
             >
-              <motion.div layout className="project-header">
-                <span className="project-category">
-                  <Lock size={10} style={{ marginRight: '5px' }} />
-                  {project.category[currentLang] || project.category['pt']}
-                </span>
-              </motion.div>
-              
-              <motion.h3 layout className="project-title">{project.title[currentLang] || project.title['pt']}</motion.h3>
-              <motion.p layout className="project-desc">
-                {project.description[currentLang] || project.description['pt']}
-              </motion.p>
-
-              <AnimatePresence>
-                {expandedId === project.id && (
-                  <motion.div 
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="project-synopsis"
-                  >
-                    <div className="project-details">
-                      <div className="detail-item">
-                        <strong>THREAT_VULN:</strong> {project.problem[currentLang] || project.problem['pt']}
+              <div className="skill-content-wrapper">
+                <AnimatePresence mode="wait">
+                  {expandedId !== project.id ? (
+                    <motion.div
+                      key="preview"
+                      className="project-preview"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15 }}
+                    >
+                      <div className="project-header">
+                        <span className="project-category">
+                          <Lock size={10} style={{ marginRight: '5px' }} />
+                          {project.category[currentLang] || project.category['pt']}
+                        </span>
                       </div>
-                      <div className="detail-item">
-                        <strong>SECURITY_RESULT:</strong> <span className="highlight">{project.result[currentLang] || project.result['pt']}</span>
+                      <h3 className="project-title">{project.title[currentLang] || project.title['pt']}</h3>
+                      <p className="project-desc">
+                        {project.description[currentLang] || project.description['pt']}
+                      </p>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="details"
+                      className="project-detail-content"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15 }}
+                    >
+                      <div className="project-header">
+                        <span className="project-category">
+                          <Lock size={10} style={{ marginRight: '5px' }} />
+                          {project.category[currentLang] || project.category['pt']}
+                        </span>
                       </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                      <h3 className="project-title-expanded">{project.title[currentLang] || project.title['pt']}</h3>
+                      <div className="project-details">
+                        <div className="detail-item">
+                          <strong>THREAT_VULN:</strong> {project.problem[currentLang] || project.problem['pt']}
+                        </div>
+                        <div className="detail-item">
+                          <strong>SECURITY_RESULT:</strong> {project.result[currentLang] || project.result['pt']}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
-              <motion.div layout className="project-tags">
+              <div className="project-tags">
                 {project.tags.map(tag => (
                   <span key={tag} className="tag">{tag}</span>
                 ))}
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           ))}
         </motion.div>
       </div>

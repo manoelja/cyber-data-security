@@ -5,18 +5,27 @@ import { Sun, Moon, Languages, ChevronDown, Menu, X } from 'lucide-react';
 import { useActiveSection } from '../../hooks/useActiveSection';
 import './Navbar.css';
 
+const SECTION_IDS = ['hero', 'about', 'symbiosis', 'skills', 'projects', 'contact'] as const;
+
 const Navbar = () => {
   const { t, i18n } = useTranslation();
   const [isLight, setIsLight] = useState(localStorage.getItem('theme') === 'light');
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(() => window.scrollY > 50);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const activeSection = useActiveSection(['hero', 'about', 'skills', 'projects', 'contact']);
+  const activeSection = useActiveSection(SECTION_IDS);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -52,11 +61,8 @@ const Navbar = () => {
   ];
 
   return (
-    <motion.nav 
+    <nav 
       className={`navbar ${isScrolled ? 'shrunk' : ''}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
     >
       <div className="container navbar-content">
         <div className="logo">
@@ -200,7 +206,7 @@ const Navbar = () => {
           </>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 };
 

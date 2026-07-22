@@ -2,14 +2,14 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './Footer.css';
-import { Github, Linkedin, Globe, User, X, Terminal, Code, Command } from 'lucide-react';
+import { Github, Linkedin, User, X, Terminal, Code, Command } from 'lucide-react';
 
 type ShellType = 'git' | 'bash' | 'cmd';
 
 const aboutTexts: Record<string, string> = {
-  pt: "Sou Data Scientist apaixonado por transformar dados em inteligência e democratizar o conhecimento técnico. Criei esta plataforma para compartilhar aprendizado e contribuir com a comunidade brasileira de tecnologia.",
-  en: "I'm a Data Scientist passionate about turning data into intelligence and democratizing technical knowledge. I created this platform to share learning and contribute to the tech community.",
-  es: "Soy Data Scientist apasionado por transformar datos en inteligencia y democratizar el conocimiento técnico. Creé esta plataforma para compartir aprendizaje y contribuir a la comunidad tecnológica."
+  pt: "Olá! Meu nome é Manoel e sou apaixonado por ciência de dados e cibersegurança. Acredito que a tecnologia tem o poder de transformar vidas, mas só quando é acessível a todos. Por isso, criei este espaço...",
+  en: "Hi! My name is Manoel and I'm passionate about data science and cybersecurity. I believe technology has the power to transform lives — but only when it's accessible to everyone. That's why I created this space...",
+  es: "¡Hola! Mi nombre es Manoel y me apasiona la ciencia de datos y la ciberseguridad. Creo que la tecnología tiene el poder de transformar vidas, pero solo cuando es accesible para todos. Por eso creé este espacio ..."
 };
 
 const authorLabels: Record<string, string> = {
@@ -410,7 +410,7 @@ export default function Footer() {
                 className="social-icon-btn"
                 whileHover={{ scale: 1.1, backgroundColor: 'var(--accent-soft)', borderColor: 'var(--accent-color)' }}
               >
-                <Globe size={20} />
+                <img src="/portfolio-manoelja.svg" alt="Portfolio" width="20" height="20" />
               </motion.a>
               <motion.button
                 className="social-icon-btn"

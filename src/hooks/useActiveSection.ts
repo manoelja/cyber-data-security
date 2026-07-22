@@ -1,30 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-export const useActiveSection = (sectionIds: string[]) => {
+export const useActiveSection = (sectionIds: readonly string[]) => {
   const [activeSection, setActiveSection] = useState<string>(sectionIds[0] || '');
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    const observers = sectionIds.map((id) => {
-      const element = document.getElementById(id);
-      if (!element) return null;
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setActiveSection(id);
-            }
-          });
-        },
-        { threshold: 0.5 } // Trigger when 50% of the section is visible
-      );
+    if (elements.length === 0) return;
 
-      observer.observe(element);
-      return observer;
-    });
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            if (id) setActiveSection(id);
+          }
+        }
+      },
+      { threshold: 0.3, rootMargin: '-10% 0px -60% 0px' }
+    );
+
+    elements.forEach((el) => observerRef.current!.observe(el));
 
     return () => {
-      observers.forEach((observer) => observer?.disconnect());
+      observerRef.current?.disconnect();
     };
   }, [sectionIds]);
 

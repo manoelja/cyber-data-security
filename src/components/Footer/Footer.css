@@ -1,14 +1,13 @@
 .footer {
   background-color: transparent;
-  border-top: 1px solid var(--card-border);
+  border-top: none;
   padding: 4rem 0 2rem;
   position: relative;
-  backdrop-filter: blur(4px);
 }
 
 .footer-content {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1fr 0.6fr;
   align-items: flex-start;
   gap: 4rem;
   text-align: left;
@@ -20,6 +19,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
 }
 
 .footer-title {
@@ -37,7 +37,7 @@
   max-width: 500px;
   line-height: var(--card-body-line-height);
   font-family: monospace;
-  text-align: justify;
+  text-align: left;
   word-spacing: -0.5px;
 }
 
@@ -208,6 +208,7 @@
   border-radius: var(--cyber-radius);
   padding: 1.5rem;
   overflow: hidden;
+  width: 100%;
 }
 
 .developer-about-header {
@@ -245,7 +246,7 @@
   color: var(--text-primary);
   line-height: 1.7;
   margin: 0;
-  text-align: justify;
+  text-align: left;
   word-spacing: -0.5px;
 }
 
@@ -264,6 +265,17 @@
   text-decoration: none;
 }
 
+.social-icon-btn img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon-btn:hover img {
+  opacity: 1;
+}
+
 .social-icon-btn:hover {
   border-color: var(--accent-color);
   color: var(--accent-color);
@@ -272,7 +284,7 @@
 .footer-bottom {
   margin-top: 4rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--accent-soft);
+  border-top: none;
 }
 
 .footer-bottom-content {
@@ -314,11 +326,12 @@
     text-align: center;
   }
   .footer-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     text-align: center;
   }
   .footer-desc {
     text-align: center;
+    font-size: 0.85rem;
   }
   .footer-social-icons {
     justify-content: center;
@@ -332,5 +345,16 @@
     font-size: 0.75rem;
     width: 100%;
     justify-content: center;
+  }
+  .developer-about-card {
+    padding: 1.2rem;
+    text-align: left;
+  }
+  .developer-about-header {
+    text-align: left;
+  }
+  .developer-about-text {
+    font-size: 0.8rem;
+    line-height: 1.6;
   }
 }

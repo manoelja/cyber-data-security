@@ -1,73 +1,49 @@
-# React + TypeScript + Vite
+# Cyber Data Security — Digital Fortress
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um espaço educativo dedicado à exploração da cibersegurança e ciência de dados, onde o conhecimento é a primeira linha de defesa no mundo digital.
 
-Currently, two official plugins are available:
+## Sobre o Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Este site foi criado como um hub de aprendizado que apresenta a dualidade entre **proteção de dados** e **análise de informações**. Em uma era onde a informação é o ativo mais valioso, entender como protegê-la e analisá-la é essencial para qualquer cidadão digital.
 
-## React Compiler
+O projeto explora temas como inteligência defensiva, criptografia, detecção de ameaças em tempo real e ética digital — sempre com uma abordagem acessível e voltada ao aprendizado.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## O Que Você Encontra Aqui
 
-## Expanding the ESLint configuration
+- **Fundamentos Digitais** — Uma visão sobre por que a segurança e a análise de dados são pilares do mundo conectado atual
+- **Simbiose da Inteligência** — Como ciência de dados e cibersegurança se complementam para formar uma defesa resiliente
+- **Currículo Educacional** — Habilidades e conhecimentos essenciais em segurança, criptografia e inteligência de ameaças
+- **Módulos de Pesquisa** — Casos de estudo práticos que demonstram vulnerabilidades, soluções e lições aprendidas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Funcionalidades
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Design imersivo com estética cyberpunk e animações fluidas
+- Suporte a três idiomas: Português, Inglês e Espanhol
+- Layout responsivo para desktop e dispositivos móveis
+- Tema claro e escuro
+- Navegação suave entre seções
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tecnologias Utilizadas
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+O site é construído com tecnologias modernas da web para garantir performance, acessibilidade e experiência de uso de qualidade.
+
+## Como Executar
+
+```bash
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
+
+# Acesse no navegador
+# http://localhost:5173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Propósito
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Este é um projeto educativo e de pesquisa. O objetivo é democratizar o entendimento sobre a importância de proteger e analisar dados no século XXI.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+Desenvolvido com foco em aprendizado e segurança digital.

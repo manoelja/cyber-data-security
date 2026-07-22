@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Shield, Lock, FileText, ChevronDown, Activity, Target, Globe, AlertCircle } from 'lucide-react';
+import { Shield, Lock, FileText, Activity, Globe, AlertCircle } from 'lucide-react';
 import './About.css';
 
 const About = () => {
   const { t } = useTranslation();
   const [expandedEdu, setExpandedEdu] = useState<string | null>(null);
   const [isMainExpanded, setIsMainExpanded] = useState(false);
-  
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -36,7 +36,7 @@ const About = () => {
   return (
     <section id="about" className="about">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,17 +45,16 @@ const About = () => {
           {t('about.title')}
         </motion.h2>
 
-        <motion.div 
+        <motion.div
           className="about-grid"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
         >
           <motion.div className="about-info" variants={itemVariants}>
-            <motion.div 
-              layout
-              className={`about-card-main cyber-card ${isMainExpanded ? 'expanded' : ''}`}
+            <div
+              className="about-card-main cyber-card"
               onClick={() => setIsMainExpanded(!isMainExpanded)}
               style={{ cursor: 'pointer' }}
             >
@@ -64,41 +63,48 @@ const About = () => {
                   <Shield size={20} color="var(--accent-color)" />
                   <span className="card-label">INTELLIGENCE REPORT</span>
                 </div>
-                <motion.div 
-                  animate={{ rotate: isMainExpanded ? 180 : 0 }}
-                >
-                  <ChevronDown size={20} opacity={0.5} />
-                </motion.div>
               </div>
 
-              <motion.p layout className="about-text">
-                {t('about.description')}
-              </motion.p>
-
-              <AnimatePresence>
-                {isMainExpanded && (
-                  <motion.div 
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="about-details-expanded"
-                  >
-                    <div className="profile-deep-dive">
-                      <p className="deep-text">
-                        <span style={{ color: 'var(--accent-color)' }}>&gt;</span> {t('about.detailed_profile')}
+              <div className="about-content-wrapper">
+                <AnimatePresence mode="wait">
+                  {!isMainExpanded ? (
+                    <motion.div
+                      key="preview"
+                      className="about-preview"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15 }}
+                    >
+                      <p className="about-description-text">
+                        {t('about.description')}
                       </p>
-                      
-                      <div className="mission-box">
-                        <div className="mission-header">
-                          <Target size={16} color="var(--accent-color)" />
-                          <span className="card-label">MISSION OBJECTIVE</span>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="details"
+                      className="about-details-expanded"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15 }}
+                    >
+                      <div className="profile-deep-dive">
+                        <p className="deep-text">
+                          <span style={{ color: 'var(--accent-color)' }}>&gt;</span> {t('about.detailed_profile')}
+                        </p>
+
+                        <div className="mission-box">
+                          <div className="mission-header">
+                            <span className="card-label">MISSION OBJECTIVE</span>
+                          </div>
+                          <p className="mission-body">{t('about.mission_text')}</p>
                         </div>
-                        <p className="mission-body">{t('about.mission_text')}</p>
                       </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               <div className="about-details-list">
                 <div className="detail-item-modern">
@@ -116,14 +122,13 @@ const About = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
 
           <motion.div className="about-education" variants={itemVariants}>
             {/* Certification 1 */}
-            <motion.div 
-              layout
-              className={`edu-card-modern cyber-card ${expandedEdu === 'cert1' ? 'expanded' : ''}`}
+            <div
+              className="edu-card-modern cyber-card"
               onClick={() => toggleEdu('cert1')}
               style={{ cursor: 'pointer' }}
             >
@@ -135,36 +140,42 @@ const About = () => {
                   <span className="edu-type">{t('about.graduation_label')}</span>
                   <h3 className="edu-title">{t('about.graduation_title')}</h3>
                 </div>
-                <motion.div 
-                  animate={{ rotate: expandedEdu === 'cert1' ? 180 : 0 }}
-                >
-                  <ChevronDown size={20} opacity={0.5} />
-                </motion.div>
               </div>
 
-              <AnimatePresence>
-                {expandedEdu === 'cert1' && (
-                  <motion.div 
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="edu-details-expanded"
-                  >
-                    <div className="edu-institution">
-                      <span className="inst-name">STATUS: VERIFIED</span>
-                      <span className="inst-full">{t('about.graduation_inst')}</span>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-              
-              {!expandedEdu && <div className="edu-badge">CERTIFIED</div>}
-            </motion.div>
+              <div className="edu-content-wrapper">
+                <AnimatePresence mode="wait">
+                  {expandedEdu !== 'cert1' ? (
+                    <motion.div
+                      key="badge"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.1 }}
+                    >
+                      <div className="edu-badge">CERTIFIED</div>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="details"
+                      className="edu-details-content"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.1 }}
+                    >
+                      <div className="edu-institution">
+                        <span className="inst-name">STATUS: VERIFIED</span>
+                        <span className="inst-full">{t('about.graduation_inst')}</span>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
 
             {/* Certification 2 */}
-            <motion.div 
-              layout
-              className={`edu-card-modern cyber-card ${expandedEdu === 'cert2' ? 'expanded' : ''}`}
+            <div
+              className="edu-card-modern cyber-card"
               onClick={() => toggleEdu('cert2')}
               style={{ cursor: 'pointer' }}
             >
@@ -176,31 +187,38 @@ const About = () => {
                   <span className="edu-type">{t('about.postgrad_label')}</span>
                   <h3 className="edu-title">{t('about.postgrad_title')}</h3>
                 </div>
-                <motion.div 
-                  animate={{ rotate: expandedEdu === 'cert2' ? 180 : 0 }}
-                >
-                  <ChevronDown size={20} opacity={0.5} />
-                </motion.div>
               </div>
 
-              <AnimatePresence>
-                {expandedEdu === 'cert2' && (
-                  <motion.div 
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="edu-details-expanded"
-                  >
-                    <div className="edu-institution">
-                      <span className="inst-name">STATUS: AUTHORIZED</span>
-                      <span className="inst-full">{t('about.postgrad_inst')}</span>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-              
-              {!expandedEdu && <div className="edu-badge">VALIDATED</div>}
-            </motion.div>
+              <div className="edu-content-wrapper">
+                <AnimatePresence mode="wait">
+                  {expandedEdu !== 'cert2' ? (
+                    <motion.div
+                      key="badge"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.1 }}
+                    >
+                      <div className="edu-badge">VALIDATED</div>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="details"
+                      className="edu-details-content"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.1 }}
+                    >
+                      <div className="edu-institution">
+                        <span className="inst-name">STATUS: AUTHORIZED</span>
+                        <span className="inst-full">{t('about.postgrad_inst')}</span>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
 
             <div className="mission-box about-alert-box">
               <div className="about-alert-header">
