@@ -52,9 +52,8 @@ function App() {
         <Symbiosis />
         <Skills />
         <Projects />
+        <Footer />
       </main>
-
-      <Footer />
     </div>
   );
 }

@@ -15,19 +15,24 @@ const CyberBackground = () => {
     if (!ctx) return;
 
     let animationFrameId: number;
-    
+    let isVisible = true;
+    let lastFrameTime = 0;
+    const TARGET_FPS = 20;
+    const FRAME_INTERVAL = 1000 / TARGET_FPS;
+
     // Configurações da "Chuva Digital"
     const fontSize = 16;
     let columns = 0;
     let drops: number[] = [];
     const characters = "01010101ABCDEF"; // Binário + Hex para tema de segurança
-    
+
     const mouse = { x: -1000, y: -1000 };
 
     const init = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+
       columns = Math.floor(canvas.width / fontSize);
       drops = [];
       for (let i = 0; i < columns; i++) {
@@ -45,8 +50,18 @@ const CyberBackground = () => {
       mouse.y = -1000;
     };
 
-    const draw = () => {
+    const handleVisibility = () => {
+      isVisible = document.visibilityState === 'visible';
+    };
+
+    const draw = (timestamp: number) => {
       if (!ctx || !canvas) return;
+
+      animationFrameId = requestAnimationFrame(draw);
+
+      if (!isVisible) return;
+      if (timestamp - lastFrameTime < FRAME_INTERVAL) return;
+      lastFrameTime = timestamp;
 
       const isLightTheme = document.documentElement.classList.contains('light-theme');
 
@@ -55,7 +70,7 @@ const CyberBackground = () => {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.font = `${fontSize}px monospace`;
-      
+
       // Desativar shadowBlur para evitar artefatos de "flash" e melhorar performance
       ctx.shadowBlur = 0;
 
@@ -69,7 +84,7 @@ const CyberBackground = () => {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < 150) {
-          ctx.fillStyle = isLightTheme ? '#d32f2f' : '#ffffff'; 
+          ctx.fillStyle = isLightTheme ? '#d32f2f' : '#ffffff';
         } else {
           const alpha = Math.random() * 0.3 + 0.1;
           ctx.fillStyle = isLightTheme ? `rgba(211, 47, 47, ${alpha})` : `rgba(255, 49, 49, ${alpha})`;
@@ -83,19 +98,19 @@ const CyberBackground = () => {
 
         drops[i] += 0.4;
       }
-
-      animationFrameId = requestAnimationFrame(draw);
     };
 
     init();
-    draw();
+    animationFrameId = requestAnimationFrame(draw);
 
+    document.addEventListener('visibilitychange', handleVisibility);
     window.addEventListener('resize', init);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      document.removeEventListener('visibilitychange', handleVisibility);
       window.removeEventListener('resize', init);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);

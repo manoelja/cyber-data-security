@@ -357,4 +357,25 @@
     font-size: 0.8rem;
     line-height: 1.6;
   }
+  .terminal-content {
+    min-height: 180px;
+    max-height: 280px;
+    font-size: 0.7rem;
+  }
+  .shell-btn {
+    min-height: 40px;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.75rem;
+  }
+  .close-about-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .terminal-input {
+    font-size: 0.75rem;
+    min-height: 44px;
+  }
 }
