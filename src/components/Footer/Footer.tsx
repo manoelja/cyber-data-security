@@ -404,13 +404,13 @@ export default function Footer() {
                 <Linkedin size={20} />
               </motion.a>
               <motion.a
-                href="https://github.com/manoelja/cyberdata"
+                href="https://manoelja.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-icon-btn"
                 whileHover={{ scale: 1.1, backgroundColor: 'var(--accent-soft)', borderColor: 'var(--accent-color)' }}
               >
-                <img src="/portfolio-manoelja.svg" alt="Portfolio" width="20" height="20" />
+                <img src="/manoelja.svg" alt="Portfolio" width="20" height="20" />
               </motion.a>
               <motion.button
                 className="social-icon-btn"
