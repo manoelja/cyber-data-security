@@ -395,7 +395,7 @@ export default function Footer() {
                 <Github size={20} />
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/in/manoel-ara%C3%BAjo-79b62239b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                href="https://www.linkedin.com/in/manoelja"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-icon-btn"
