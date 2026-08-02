@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .project-card {
@@ -76,7 +76,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 .tag {
@@ -143,6 +144,13 @@
 
 .detail-item .highlight {
   color: var(--accent-color);
+}
+
+/* Projects Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .projects-grid {
+    gap: 1rem;
+  }
 }
 
 /* Projects Responsive */

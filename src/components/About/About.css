@@ -302,6 +302,13 @@
   gap: 1rem;
 }
 
+/* About Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .about-grid {
+    gap: 1.5rem;
+  }
+}
+
 /* About Responsive */
 @media (max-width: 768px) {
   .about-grid {

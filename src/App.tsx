@@ -45,7 +45,9 @@ function App() {
 
       <Navbar />
 
-      <main className="container">
+      {/* Sem a classe container aqui: cada seção já aplica o próprio .container,
+          e o duplo padding deixava o conteúdo (4rem) desalinhado com a navbar (2rem). */}
+      <main>
         <Hero />
         <ScrollIndicator />
         <About />
