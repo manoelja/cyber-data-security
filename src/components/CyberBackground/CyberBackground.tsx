@@ -52,6 +52,11 @@ const CyberBackground = () => {
 
     const handleVisibility = () => {
       isVisible = document.visibilityState === 'visible';
+      if (isVisible) {
+        // Zera o controle de frame para desenhar IMEDIATAMENTE ao voltar
+        // do segundo plano (sem esperar o próximo intervalo de FPS).
+        lastFrameTime = 0;
+      }
     };
 
     const draw = (timestamp: number) => {
@@ -104,6 +109,10 @@ const CyberBackground = () => {
     animationFrameId = requestAnimationFrame(draw);
 
     document.addEventListener('visibilitychange', handleVisibility);
+    // pageshow + focus: cobrem a restauração via bfcache e o retorno pelo
+    // alternador de apps, quando visibilitychange pode não disparar.
+    window.addEventListener('pageshow', handleVisibility);
+    window.addEventListener('focus', handleVisibility);
     window.addEventListener('resize', init);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseleave', handleMouseLeave);
@@ -111,6 +120,8 @@ const CyberBackground = () => {
     return () => {
       cancelAnimationFrame(animationFrameId);
       document.removeEventListener('visibilitychange', handleVisibility);
+      window.removeEventListener('pageshow', handleVisibility);
+      window.removeEventListener('focus', handleVisibility);
       window.removeEventListener('resize', init);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);

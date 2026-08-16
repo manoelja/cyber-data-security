@@ -30,13 +30,26 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    const root = document.documentElement;
+
+    // Desativa transições durante a troca de tema: as cores vêm de variáveis
+    // de :root e, sem isso, o navegador re-animaria toda a página
+    // (transition: all 0.3s + backdrop-filter), causando atraso perceptível
+    // no navbar em dispositivos mobile. (mesma técnica usada no dataguia)
+    root.classList.add('no-theme-transition');
+
     if (isLight) {
-      document.documentElement.classList.add('light-theme');
+      root.classList.add('light-theme');
       localStorage.setItem('theme', 'light');
     } else {
-      document.documentElement.classList.remove('light-theme');
+      root.classList.remove('light-theme');
       localStorage.setItem('theme', 'dark');
     }
+
+    // Força o layout para aplicar o novo tema no mesmo frame
+    // e reabilita as transições logo em seguida.
+    root.getBoundingClientRect();
+    root.classList.remove('no-theme-transition');
   }, [isLight]);
 
   const changeLanguage = (lng: string) => {

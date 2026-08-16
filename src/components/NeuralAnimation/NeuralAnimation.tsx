@@ -23,6 +23,7 @@ const NeuralAnimation = ({ className, style, isGlobal }: NeuralAnimationProps) =
     if (!ctx) return;
 
     let animationFrameId: number;
+    let isVisible = true;
     let particles: Particle[] = [];
     let trailParticles: Particle[] = []; 
     
@@ -137,8 +138,17 @@ const NeuralAnimation = ({ className, style, isGlobal }: NeuralAnimationProps) =
       mouse.y = -1000;
     };
 
+    const handleVisibility = () => {
+      isVisible = document.visibilityState === 'visible';
+    };
+
     const animate = () => {
-      if (!ctx || !canvas) return;
+      // Agenda o próximo frame ANTES de qualquer early return: sem isso, o
+      // loop morre para sempre se um quadro for pulado (aba em segundo
+      // plano) e a animação fica congelada ao voltar no mobile.
+      animationFrameId = requestAnimationFrame(animate);
+
+      if (!ctx || !canvas || !isVisible) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const isLightTheme = document.documentElement.classList.contains('light-theme');
@@ -192,18 +202,24 @@ const NeuralAnimation = ({ className, style, isGlobal }: NeuralAnimationProps) =
           }
         }
       }
-      animationFrameId = requestAnimationFrame(animate);
     };
 
     init();
     animate();
 
+    document.addEventListener('visibilitychange', handleVisibility);
+    // pageshow + focus: cobrem bfcache e o retorno pelo alternador de apps.
+    window.addEventListener('pageshow', handleVisibility);
+    window.addEventListener('focus', handleVisibility);
     window.addEventListener('resize', init);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      document.removeEventListener('visibilitychange', handleVisibility);
+      window.removeEventListener('pageshow', handleVisibility);
+      window.removeEventListener('focus', handleVisibility);
       window.removeEventListener('resize', init);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);

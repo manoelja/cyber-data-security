@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { ChevronDown } from 'lucide-react';
+import { useTabResume } from './hooks/useTabResume';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
@@ -31,6 +32,10 @@ function ScrollIndicator() {
 }
 
 function App() {
+  // Corrige fontes/animações que ficam corrompidas no mobile quando o app
+  // volta do segundo plano (repaint forçado ao retomar a aba).
+  useTabResume();
+
   useEffect(() => {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';

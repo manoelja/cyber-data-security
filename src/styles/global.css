@@ -1,4 +1,6 @@
 :root {
+  /* NOTA: sem `color-scheme` — no Chrome Android ele pinta a borda inferior
+     do navegador de preto puro (#000), criando faixa visível no mobile. */
   --bg-color: #030303;
   --bg-secondary: rgba(8, 8, 12, 0.8);
   --accent-color: #ff3131; /* Cyber Red */
@@ -53,6 +55,18 @@ html.light-theme {
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 8px 40px rgba(211, 47, 47, 0.1);
+}
+
+/* Desativa as transições durante a troca de tema: as cores vêm de variáveis
+   de :root e, sem isso, o navegador re-animaria a página inteira
+   (transition: all 0.3s + backdrop-filter), causando atraso perceptível no
+   navbar em dispositivos mobile. A classe é adicionada/removida pelo Navbar
+   (ver src/components/Navbar/Navbar.tsx). */
+html.no-theme-transition,
+html.no-theme-transition *,
+html.no-theme-transition *::before,
+html.no-theme-transition *::after {
+  transition: none !important;
 }
 
 * {
